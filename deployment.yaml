@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamlit-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: streamlit-app
+  template:
+    metadata:
+      labels:
+        app: streamlit-app
+    spec:
+      containers:
+      - name: streamlit-app
+        image: ballab/streamlit-app:0.0.2
+        ports:
+        - containerPort: 8501
+        env:
+        - name: MINIO_ENDPOINT
+          value: "http://fx-minio.core:9000"
+        - name: MINIO_ACCESS_KEY
+          value: "miniofx"
+        - name: MINIO_SECRET_KEY
+          value: "minio123"
+        - name: MINIO_BUCKET_NAME
+          value: "generic"
+        - name: TARGET_BUCKETS
+          value: "generic,whisper-in"          
+        imagePullPolicy: Always
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: streamlit-app-service
+spec:
+  selector:
+    app: streamlit-app
+  ports:
+    - protocol: TCP
+      port: 8501
+      targetPort: 8501
+
