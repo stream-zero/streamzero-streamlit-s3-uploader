@@ -1,6 +1,8 @@
 # streamzero-streamlit-s3-uploader
 A generic UI to upload files to AWS S3 or S3 Compatible Storage (such as MinIO) for quick tests.
 
+Dockerfile and Deployment file are provided for reference.
+
 The following are the environment parameters to be set
 
 ```
