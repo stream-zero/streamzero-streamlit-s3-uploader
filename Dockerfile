@@ -4,7 +4,7 @@ FROM python:3.8-slim
 
 
 RUN apt-get -y update
-RUN apt install -y  gcc curl netcat-traditional
+RUN apt install -y  gcc curl
 # Set the working directory to /app
 WORKDIR /app
 

@@ -4,9 +4,9 @@ import os
 
 
 # Specify your credentials and custom endpoint here
-aws_access_key_id = os.environ['MINIO_ACCESS_KEY']
-aws_secret_access_key = os.environ['MINIO_SECRET_KEY']
-endpoint_url = os.environ['MINIO_ENDPOINT']
+aws_access_key_id = os.environ['S3_ACCESS_KEY']
+aws_secret_access_key = os.environ['S3_SECRET_KEY']
+endpoint_url = os.environ['S3_ENDPOINT']
 
 
 # Initialize a session using Amazon S3
